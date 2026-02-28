@@ -154,6 +154,23 @@ body {
    HERO SECTION
    ============================================ */
 
+/* Sobre photo styling */
+.sobre-photo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.responsive-photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+
 .hero {
     min-height: 80vh;
     display: flex;
@@ -802,75 +819,44 @@ section:nth-child(even) {
     padding: 5rem 0;
 }
 
-.certificados-filtro {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.filtro-btn {
-    background: var(--bg-secondary);
-    border: 2px solid var(--border-color);
-    color: var(--text-primary);
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.filtro-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-.filtro-btn.active {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-    color: #000;
-    border-color: var(--accent);
-}
-
-.certificados-grid {
+.certificados-platforms {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    margin-top: 3rem;
 }
 
-.certificado-card {
-    background: var(--bg-primary);
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
+.platform-card {
+    background: #222;
+    color: #fff;
     padding: 2rem;
-    transition: var(--transition);
-}
-
-.certificado-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--accent);
-}
-
-.certificado-header {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.certificado-icon {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
     border-radius: 12px;
-    flex-shrink: 0;
-    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.platform-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+}
+
+.platform-card ul {
+    list-style: disc inside;
+    line-height: 1.6;
+}
+
+.platform-card li {
+    margin-bottom: 0.5rem;
+}
+
+.platform-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* legacy estilos de filtro/certificados (não usados) podem ser mantidos ou removidos */
     color: #000;
 }
 

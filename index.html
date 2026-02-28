@@ -54,6 +54,11 @@
         <div class="container">
             <h2 class="section-title">Sobre Mim</h2>
             <div class="sobre-content">
+                <!-- photo section added for user's image -->
+                <div class="sobre-photo">
+                    <!-- place your image file in the "images" folder and update the filename accordingly -->
+                    <img src="images/image.png" alt="Foto de Bruno" class="responsive-photo">
+                </div>
                 <div class="sobre-text">
                     <p>
                         Sou Bruno, estudante de Ciências da Computação com formação técnica em Informática. Possuo
@@ -195,67 +200,41 @@
     <section id="certificados" class="section-certificados">
         <div class="container">
             <h2 class="section-title">Certificados</h2>
-            
-            <!-- Filtro de certificados -->
-            <div class="certificados-filtro">
-                <button class="filtro-btn active" data-filter="todos">
-                    <i class="fas fa-list"></i> Todos
-                </button>
-                <button class="filtro-btn" data-filter="plataforma">
-                    <i class="fas fa-graduation-cap"></i> Por Plataforma
-                </button>
-                <button class="filtro-btn" data-filter="linguagem">
-                    <i class="fas fa-language"></i> Por Linguagem
-                </button>
-            </div>
 
-            <div class="certificados-grid">
-                <!-- Certificado 1 -->
-                <div class="certificado-card" data-plataforma="EF SET">
-                    <div class="certificado-header">
-                        <div class="certificado-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <div class="certificado-info">
-                            <h3>English Certificate (C1 Advanced)</h3>
-                            <p class="certificado-plataforma">EF SET</p>
-                            <p class="certificado-data">Fevereiro 2026</p>
-                        </div>
-                    </div>
-                    <div class="certificado-tags">
-                        <span class="tag">Inglês</span>
-                        <span class="tag">C1</span>
-                        <span class="tag">Avançado</span>
-                    </div>
-                    <div class="certificado-links">
-                        <a href="https://cert.efset.org/en/qu5AgW" target="_blank" class="link-cert">
-                            <i class="fas fa-external-link-alt"></i> Ver Certificado
-                        </a>
-                    </div>
+            <!-- cards por plataformas -->
+            <div class="certificados-platforms">
+                <div class="platform-card">
+                    <h3>Programação</h3>
+                    <ul>
+                        <li>Crie um Site Simples Usando HTML, CSS e JavaScript
+                        <br>Fundação Bradesco - Escola Virtual</br>
+                        </li>
+                    </ul>
                 </div>
-
-                <!-- Certificado 2 -->
-                <div class="certificado-card" data-plataforma="Fundação Bradesco">
-                    <div class="certificado-header">
-                        <div class="certificado-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <div class="certificado-info">
-                            <h3>Fundamentos de TI: Hardware e Software</h3>
-                            <p class="certificado-plataforma">Fundação Bradesco</p>
-                            <p class="certificado-data">Maio 2024</p>
-                        </div>
-                    </div>
-                    <div class="certificado-tags">
-                        <span class="tag">Hardware</span>
-                        <span class="tag">Software</span>
-                        <span class="tag">TI</span>
-                    </div>
-                    <div class="certificado-links">
-                        <a href="#" target="_blank" class="link-cert">
-                            <i class="fas fa-external-link-alt"></i> Ver Certificado
-                        </a>
-                    </div>
+                <div class="platform-card">
+                    <h3>Ferramentas & Conhecimentos</h3>
+                    <ul>
+                        <li>Fundamentos de TI: Hardware e Software
+                        <br>Fundação Bradesco - Escola Virtual</br>
+                        </li>
+                        <li>Letramento Digital
+                        <br>Fundação Bradesco - Escola Virtual</br>
+                        </li>
+                        <li>Construindo Minha Proteção Financeira
+                        <br>Fundação Bradesco - Escola Virtual</br>
+                        </li>
+                        <li>SharePoint
+                        <br>Fundação Bradesco - Escola Virtual</br>
+                        </li>
+                    </ul>
+                </div>
+                <div class="platform-card">
+                    <h3>Idiomas</h3>
+                    <ul>
+                        <li>EF SET English Certificate (C1 Advanced)
+                        <br>EF SET</br>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -305,10 +284,9 @@
                         <p class="timeline-institution">Colégio Sinodal da Paz - Novo Hamburgo - RS</p>
                         <p class="timeline-date">2023 - 2025</p>
                         <p class="timeline-description">
-                            Conclusão do ensino médio com excelentes desempenhos nas disciplinas de matemática e ciências.
-                        </p>
-                    </div>
-                </div>
+                            Conclusão do ensino médio com excelentes desempenhos nas disciplinas, com participação em atividades extracurriculares, como Inglês Complementar. 
+                            
+                            <br>Participação em feiras científicas como: Feicepaz 2023, 2024 e 2025.</br>
             </div>
         </div>
     </section>
@@ -334,7 +312,6 @@
                             <span class="tag">HTML5</span>
                             <span class="tag">CSS3</span>
                             <span class="tag">JavaScript</span>
-                            <span class="tag">Google Maps</span>
                             <span class="tag">Netlify</span>
                         </div>
                         <div style="margin-top: 1rem;">
