@@ -912,11 +912,26 @@ section:nth-child(even) {
 
 @media (max-width: 768px) {
     .nav {
+        display: none;
+        flex-direction: column;
+        background: var(--bg-secondary);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: calc(100% - 40px);
+        border-radius: 8px;
+        box-shadow: var(--shadow-lg);
         gap: 1rem;
+    }
+
+    .nav.show {
+        display: flex;
     }
 
     .nav-link {
         font-size: 0.9rem;
+        padding: 1rem 0;
+        text-align: center;
     }
 
     .section-title {
@@ -956,6 +971,20 @@ section:nth-child(even) {
 
     .sobre-content {
         gap: 2rem;
+    }
+
+    .header {
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: flex;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
     }
 }
 
