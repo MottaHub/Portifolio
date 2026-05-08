@@ -100,6 +100,114 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // FILTRO DE CERTIFICADOS
 // ============================================
 
+const certificadoItems = document.querySelectorAll('.certificado-item');
+const certificadoModal = document.getElementById('certificadoModal');
+const certificadoModalTitle = document.getElementById('certificadoModalTitle');
+const certificadoModalIssuer = document.getElementById('certificadoModalIssuer');
+const certificadoCredential = document.getElementById('certificadoCredential');
+const certificadoViewer = document.getElementById('certificadoViewer');
+const certificadoDownload = document.getElementById('certificadoDownload');
+
+function openCertificadoModal(item) {
+    if (!certificadoModal) return;
+
+    const title = item.dataset.title;
+    const issuer = item.dataset.issuer;
+    const credential = item.dataset.credential;
+    const file = item.dataset.file;
+    const type = item.dataset.type;
+
+    certificadoModalTitle.textContent = title;
+    certificadoModalIssuer.textContent = issuer;
+    certificadoCredential.textContent = credential;
+    certificadoDownload.href = file;
+    certificadoDownload.setAttribute('download', file.split('/').pop());
+
+    certificadoViewer.innerHTML = '';
+    if (type === 'image') {
+        const image = document.createElement('img');
+        image.src = file;
+        image.alt = `Certificado ${title}`;
+        certificadoViewer.appendChild(image);
+    } else {
+        const frame = document.createElement('iframe');
+        frame.src = file;
+        frame.title = `Certificado ${title}`;
+        certificadoViewer.appendChild(frame);
+    }
+
+    certificadoModal.classList.add('show');
+    certificadoModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCertificadoModal() {
+    if (!certificadoModal) return;
+
+    certificadoModal.classList.remove('show');
+    certificadoModal.setAttribute('aria-hidden', 'true');
+    certificadoViewer.innerHTML = '';
+    document.body.style.overflow = '';
+}
+
+certificadoItems.forEach(item => {
+    item.addEventListener('click', () => openCertificadoModal(item));
+});
+
+document.querySelectorAll('[data-close-certificado]').forEach(button => {
+    button.addEventListener('click', closeCertificadoModal);
+});
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && certificadoModal?.classList.contains('show')) {
+        closeCertificadoModal();
+    }
+});
+
+const imagePreviewTriggers = document.querySelectorAll('.image-preview-trigger');
+const imageModal = document.getElementById('imageModal');
+const imageModalTitle = document.getElementById('imageModalTitle');
+const imageModalImg = document.getElementById('imageModalImg');
+const imageModalOpen = document.getElementById('imageModalOpen');
+
+function openImageModal(trigger) {
+    if (!imageModal) return;
+
+    const imagePath = trigger.dataset.image;
+    const title = trigger.dataset.title || 'Imagem do projeto';
+
+    imageModalTitle.textContent = title;
+    imageModalImg.src = imagePath;
+    imageModalImg.alt = title;
+    imageModalOpen.href = imagePath;
+    imageModal.classList.add('show');
+    imageModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+    if (!imageModal) return;
+
+    imageModal.classList.remove('show');
+    imageModal.setAttribute('aria-hidden', 'true');
+    imageModalImg.src = '';
+    document.body.style.overflow = '';
+}
+
+imagePreviewTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => openImageModal(trigger));
+});
+
+document.querySelectorAll('[data-close-image]').forEach(button => {
+    button.addEventListener('click', closeImageModal);
+});
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && imageModal?.classList.contains('show')) {
+        closeImageModal();
+    }
+});
+
 const filtroButtons = document.querySelectorAll('.filtro-btn');
 const certificadoCards = document.querySelectorAll('.certificado-card');
 
@@ -190,6 +298,22 @@ document.querySelectorAll('.skill-icon, .certificado-card, .projeto-card').forEa
             this.style.transform = 'translateY(0)';
         }, 300);
     });
+});
+
+document.querySelectorAll('.projeto-gallery img').forEach(image => {
+    const markMissingImage = () => {
+        const galleryArea = image.closest('.projeto-gallery-main, .projeto-gallery-thumbs');
+        if (galleryArea) {
+            galleryArea.classList.add('is-missing');
+        }
+        image.remove();
+    };
+
+    image.addEventListener('error', markMissingImage);
+
+    if (image.complete && image.naturalWidth === 0) {
+        markMissingImage();
+    }
 });
 
 // ============================================
